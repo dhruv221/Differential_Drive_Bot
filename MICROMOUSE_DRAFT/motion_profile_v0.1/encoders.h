@@ -16,19 +16,19 @@
 
 #include "config.h"
 
-void setup_encoders() {
-  pinMode(ENCODER_L, INPUT_PULLUP);
-  pinMode(ENCODER_R, INPUT_PULLUP);
-  attachInterrupt(ENCODER_L, ENCODER_L_ISR, FALLING);
-  attachInterrupt(ENCODER_R, ENCODER_R_ISR, FALLING);
-}
-
 void ENCODER_L_ISR() {
   encoder_left_counter++;
 }
 
 void ENCODER_R_ISR() {
   encoder_right_counter++;
+}
+
+void setup_encoders() {
+  pinMode(ENCODER_L, INPUT_PULLUP);
+  pinMode(ENCODER_R, INPUT_PULLUP);
+  attachInterrupt(ENCODER_L, ENCODER_L_ISR, FALLING);
+  attachInterrupt(ENCODER_R, ENCODER_R_ISR, FALLING);
 }
 
 #endif
