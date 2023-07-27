@@ -1,3 +1,15 @@
+/*
+* File: config.h
+* Author: Dhruv Wadhwa
+* Created: 28-07-2023 2:53AM
+* Last Modified: 28-07-2023 2:53AM
+* Description:
+* contains configuration of hardware (raspberry pi pico or pico w)
+* and physical robot parameters
+*
+* Copyright (c) 2021 Dhruv Wadhwa
+*/
+
 #ifndef CONFIG_H
 #define CONFIG_H
 
