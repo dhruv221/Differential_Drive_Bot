@@ -1,3 +1,15 @@
+/*
+* File: encoders.h
+* Author: Dhruv Wadhwa
+* Created: 28-07-2023 2:53AM
+* Last Modified: 28-07-2023 2:53AM
+* Description:
+* hardware abstraction N20 encoders
+* with position and angle odometry
+*
+* Copyright (c) 2021 Dhruv Wadhwa
+*/
+
 #ifndef ENCODERS_H
 #define ENCODERS_H
 
