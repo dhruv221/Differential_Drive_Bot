@@ -7,7 +7,7 @@
 * hardware abstraction N20 encoders
 * with position and angle odometry
 *
-* Copyright (c) 2021 Dhruv Wadhwa
+* Copyright (c) 2023 Dhruv Wadhwa
 */
 
 #ifndef ENCODERS_H
