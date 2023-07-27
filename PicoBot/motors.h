@@ -6,7 +6,7 @@
 * Description:
 * hardware abstraction for motor pwm control
 *
-* Copyright (c) 2021 Dhruv Wadhwa
+* Copyright (c) 2023 Dhruv Wadhwa
 */
 
 #ifndef MOTORS_H
