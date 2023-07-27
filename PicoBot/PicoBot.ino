@@ -1,14 +1,28 @@
 #include "encoders.h"
+#include "odometry.h"
+#include "motors.h"
 
 
 void setup() {
   Serial.begin(115200);
+  setup_motors();
+  set_left_motor_pwm(130);
+  set_right_motor_pwm(130);
 }
 
 void loop() {
-  Serial.print(encoder_left_counter);
+  update_odometry();
+  Serial.print(X);
   Serial.print(", ");
-  Serial.println(encoder_right_counter);
+  Serial.print(Y);
+  Serial.print(", ");
+  Serial.print(theta);
+  // // Serial.print(", ");
+  // Serial.print(v);
+  // Serial.print(", ");
+  // Serial.print(w);
+  // Serial.print(", ");
+  Serial.println();
 }
 
 
@@ -19,5 +33,5 @@ void setup1() {
 }
 
 void loop1() {
-
+  
 }
