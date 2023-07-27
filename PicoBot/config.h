@@ -7,7 +7,7 @@
 * contains configuration of hardware (raspberry pi pico or pico w)
 * and physical robot parameters
 *
-* Copyright (c) 2021 Dhruv Wadhwa
+* Copyright (c) 2023 Dhruv Wadhwa
 */
 
 #ifndef CONFIG_H
