@@ -1,17 +1,3 @@
-/*
- * File: motors.h
- * Project: Micromouse_draft
- * File Created: Thursday, 27th july 2023 12:34 am
- * Author: Dhruv wadhwa
- * -----
- * Last Modified: Thursday, 27th july 2023 12:34 am
- * Modified By: Dhruv wadhwa
- * -----
- * MIT License
- *
- * Copyright (c) 2021 Dhruv Wadhwa
- */
- 
 #ifndef MOTORS_H
 #define MOTORS_H
 
