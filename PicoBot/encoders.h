@@ -65,8 +65,8 @@ void update_encoders() {
 
   //get encoder counters safely and reset
   noInterrupts();
-  float left_delta = encoder_left_counter;
-  float right_delta = encoder_right_counter;
+  left_delta = encoder_left_counter;
+  right_delta = encoder_right_counter;
   encoder_left_counter = 0;
   encoder_right_counter = 0;
   interrupts();
