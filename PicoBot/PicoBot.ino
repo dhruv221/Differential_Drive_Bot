@@ -1,4 +1,5 @@
 #include "encoders.h"
+#include "motors.h"
 
 
 void setup() {
@@ -6,9 +7,10 @@ void setup() {
 }
 
 void loop() {
-  Serial.print(encoder_left_counter);
+  Serial.print(robot_position());
   Serial.print(", ");
-  Serial.println(encoder_right_counter);
+  Serial.print(robot_angle());
+  Serial.println();
 }
 
 
@@ -19,5 +21,5 @@ void setup1() {
 }
 
 void loop1() {
-
+  update_encoders();
 }
