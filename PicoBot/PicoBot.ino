@@ -1,7 +1,6 @@
 #include "encoders.h"
 #include "motors.h"
 
-
 void setup() {
   Serial.begin(115200);
 }
@@ -12,8 +11,6 @@ void loop() {
   Serial.print(robot_angle());
   Serial.println();
 }
-
-
 
 
 void setup1() {
