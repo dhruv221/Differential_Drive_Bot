@@ -2,7 +2,7 @@
 * File: motion_profile.h
 * Author: Dhruv Wadhwa
 * Created: 28-07-2023 3:33PM
-* Last Modified: 28-07-2023 3:33PM
+* Last Modified: 30-07-2023 1:34AM
 * Description:
 * generate smooth position and angle values
 * using current position, speed, angle.
@@ -27,22 +27,20 @@ private:
   int8_t sign = 1;         //+ve or -ve speed
   float SAMPLE_TIME;       //sample time
   float robot_distance;    //current pos
-  float robot_angle;       //current angle
   float robot_speed;       //current speed
   float final_distance;    //final dist
   float final_angle;       //final angle
-  uint16_t target_speed;   //target speed
-  uint16_t final_speed;    //final speed
-  uint16_t acceleration;   //acceleration
+  int16_t target_speed;    //target speed
+  int16_t final_speed;     //final speed
+  int16_t acceleration;    //acceleration
   float acceleration_inv;  //precomputed 1/acc
-  float fwd_setpoint;      //output fwd setpoints
-  float rot_setpoint;      //output rot setpoints
+  float setpoint;          //output fwd setpoints
+
 
 public:
 
   void reset() {
     robot_distance = 0;
-    robot_angle = 0;
     robot_speed = 0;
     final_distance = 0;
     final_angle = 0;
@@ -67,8 +65,11 @@ public:
     target_speed = 0;
   }
 
-  void start_fwd(float dist, float topSpeed, float finalSpeed, float acc) {
+  void start(float dist, float topSpeed, float finalSpeed, float acc) {
     sign = (dist < 0) ? -1 : +1;
+    if (dist < 0) {
+      dist = fabs(dist);
+    }
     if (dist < 1) {
       STATE = FINISHED;
       return;
@@ -77,7 +78,6 @@ public:
       finalSpeed = topSpeed;
     }
     robot_distance = 0;
-    robot_angle = 0;
     final_distance = fabs(dist);
     target_speed = sign * fabs(topSpeed);
     final_speed = sign * fabs(finalSpeed);
@@ -86,10 +86,10 @@ public:
     STATE = ACCELERATING;
   }
 
-  void update_fwd() {
+  void update() {
     if (STATE == IDLE) { return; }
     float deltaspeed = acceleration * SAMPLE_TIME;
-    float remaining_dist = fabs(robot_distance - final_distance);
+    float remaining_dist = fabs(final_distance) - fabs(robot_distance);
     //if braking modify target speed
     if (STATE == ACCELERATING) {
       if (remaining_dist < get_braking_dist()) {
@@ -114,15 +114,15 @@ public:
     }
     //so compute the position output
     robot_distance += robot_speed * SAMPLE_TIME;
-    fwd_setpoint = robot_distance;
+    setpoint = robot_distance;
     if (STATE != FINISHED && remaining_dist < 0.2) {
       STATE = FINISHED;
       target_speed = final_speed;
     }
   }
 
-  float get_fwd_setpoint() {
-    return fwd_setpoint;
+  float get_setpoint() {
+    return setpoint;
   }
 
 //class end
