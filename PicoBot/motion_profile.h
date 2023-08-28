@@ -2,7 +2,7 @@
 * File: motion_profile.h
 * Author: Dhruv Wadhwa
 * Created: 28-07-2023 3:33PM
-* Last Modified: 30-07-2023 1:34AM
+* Last Modified: 28-08-2023 9:36PM
 * Description:
 * generate smooth position and angle values
 * using current position, speed, angle.
@@ -47,6 +47,7 @@ public:
     target_speed = 0;
     final_speed = 0;
     acceleration = 0;
+    setpoint = 0;
   }
 
   void set_sample_time(float sampleTime) {
@@ -125,7 +126,19 @@ public:
     return setpoint;
   }
 
+  float get_speed() {
+    return robot_speed;
+  }
+
 //class end
 };
 
 #endif
+
+//----usage----//
+// motion_profile a;
+// a.reset();
+// a.set_sample_time(0.002);
+// a.start(300, 200, 0, 2000);
+// a.update();
+// a.get_setpoint()
