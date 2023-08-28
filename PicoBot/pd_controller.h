@@ -1,10 +1,10 @@
 #ifndef CONTROLLER_H
 #define CONTROLLER_H
 
-const float fwdKp = 0.15;
-const float fwdKd = 1.2;
+const float fwdKp = 2;
+const float fwdKd = 0.5;
 const float rotKp = 4;
-const float rotKd = 2.5;
+const float rotKd = 0;
 
 float fwd_error_curr;
 float fwd_error_prev;
