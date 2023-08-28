@@ -2,7 +2,7 @@
 * File: config.h
 * Author: Dhruv Wadhwa
 * Created: 28-07-2023 2:53AM
-* Last Modified: 28-07-2023 2:53AM
+* Last Modified: 28-08-2023 9:35PM
 * Description:
 * contains configuration of hardware (raspberry pi pico or pico w)
 * and physical robot parameters
@@ -30,7 +30,7 @@ const uint8_t ENCODER_R = 20;
 const float WHEEL_DIAMETER_L = 23.6;  //mm
 const float WHEEL_DIAMETER_R = 23.6;  //mm
 const float BOT_RADIUS = 39.2;        //mm
-const int ENCODER_PULSES = 694;
+const int ENCODER_PULSES = 696;
 //----------------------------------//
 
 
